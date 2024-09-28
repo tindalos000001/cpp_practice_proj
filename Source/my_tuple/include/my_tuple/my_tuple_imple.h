@@ -3,22 +3,7 @@
 #include <cstddef>
 #include <type_traits>
 #include <utility>
-
-// 获取变长类型参数的指定位置类型
-template <size_t idx, typename Head, typename... Tails>
-struct CatchType : public CatchType<idx - 1, Tails...> {
-public:
-};
-
-template <typename Head, typename... Tails>
-struct CatchType<0, Head, Tails...> {
-public:
-    using ValueType = Head;
-};
-
-template <size_t idx, typename... TArgs>
-using IndexType = typename CatchType<idx, TArgs...>::ValueType;
-
+namespace My {
 template <typename _Tp>
 inline constexpr bool IsEmpty = std::is_empty_v<_Tp>;
 template <typename _Tp>
@@ -291,6 +276,8 @@ public:
         return this->BaseType::Value( static_cast<BaseType&>( *this ) );
     }
 };
+}
+
 
 #define MY_TUPLE_IMPLE
 #endif

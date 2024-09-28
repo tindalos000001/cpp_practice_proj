@@ -1,6 +1,7 @@
 #ifndef MY_TUPLE
 #include "my_tuple_imple.h"
-
+#include "common/template_util.h"
+namespace My {
 template <typename... TArgs>
 struct MyTuple : public MyTupleImple<0, TArgs...> {
 public:
@@ -34,5 +35,7 @@ public:
 
     constexpr MyTuple( MyTuple&& tuple ) : ImpleType( dynamic_cast<ImpleType&&>( tuple ) ) {}
 };
+}
+
 #define  MY_TUPLE
 #endif
