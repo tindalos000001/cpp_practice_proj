@@ -15,20 +15,20 @@ template <size_t idx, typename... TArgs>
 using IndexType = typename CatchType<idx, TArgs...>::Type;
 
 // 捕获单一类型参数包中指定索引变量的工具类
-template <size_t kIndex, typename T, T Head, T ...Args>
-struct CatchPackValue : public CatchPackValue<kIndex - 1, T,Args...> {
+template <size_t kIndex, typename T, T Head, T... Args>
+struct CatchPackValue : public CatchPackValue<kIndex - 1, T, Args...> {
 public:
-    using Inherited = CatchPackValue<kIndex - 1, T,Args...>;
+    using Inherited = CatchPackValue<kIndex - 1, T, Args...>;
 };
 
-template <typename T, T Head, T ...Args>
+template <typename T, T Head, T... Args>
 struct CatchPackValue<0, T, Head, Args...> {
     static constexpr T Value = Head;
 };
 
-template <size_t idx, typename T ,T ...Args>
-constexpr T IndexValue = CatchPackValue<idx, T, Args...>::Value;
-constexpr int t = IndexValue<1,int, 1,2,3,4>;
+template <size_t idx, typename T, T... Args>
+constexpr T   IndexValue = CatchPackValue<idx, T, Args...>::Value;
+constexpr int t          = IndexValue<1, int, 1, 2, 3, 4>;
 }  // namespace My
 
 #define TEMPLATE_UTIL

@@ -9,14 +9,14 @@ if build this project in VSCode,use c_cpp_properties.json like this
             "name": "clang",
             "includePath": [
                 "${workspaceFolder}/Source",
-                "I:/programme/environment/Msys/ucrt64/include/c++/13.2.0" # use your cpp standard library path
+                "I:/programme/environment/Msys/ucrt64/include/c++/13.2.0" // use your cpp standard library path
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "I:/programme/environment/Msys/ucrt64/bin/clang++.exe", # use your compiler path
+            "compilerPath": "I:/programme/environment/Msys/ucrt64/bin/clang++.exe", // use your compiler path
             "cStandard": "c23",
             "cppStandard": "c++23",
             "intelliSenseMode": "windows-clang-x64"
@@ -64,8 +64,8 @@ compile task is in tasks.json, this configuration is written for msys environmen
                 ".",
                 "-B",
                 "build", 
-                "-DCMKAE_CXX_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang++.exe", # use your clang++ compiler path
-                "-DCMKAE_C_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang.exe", # use your clang compiler path
+                "-DCMKAE_CXX_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang++.exe", // use your clang++ compiler path
+                "-DCMKAE_C_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang.exe", // use your clang compiler path
                 
             ]
         },

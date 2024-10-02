@@ -1,5 +1,6 @@
 #ifndef CHECK_TEMPLATE
 #include <string_view>
+#include <array>
 #include <vector>
 
 // 判断一个模板是否是另外一个模板

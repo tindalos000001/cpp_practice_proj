@@ -1,3 +1,4 @@
 #排除构建文件
 /build/*
 /.vscode/*
+/.cache/*

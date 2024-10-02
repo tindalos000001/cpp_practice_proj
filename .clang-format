@@ -1,6 +1,7 @@
 ---
 # 语言: None, Cpp, Java, JavaScript, ObjC, Proto, TableGen, TextProto
 Language:	Cpp
+
 # BasedOnStyle:	LLVM
 # 访问说明符(public、private等)的偏移
 AccessModifierOffset:	-4
@@ -166,7 +167,7 @@ SpacesInParentheses:	true
 # 在方括号的[后和]前添加空格，lamda表达式和未指明大小的数组的声明不受影响
 SpacesInSquareBrackets:	true
 # 标准: Cpp03, Cpp11, Auto
-Standard:	Auto
+Standard:	c++20
 # tab宽度
 TabWidth:	4
 # 使用tab字符: Never, ForIndentation, ForContinuationAndIndentation, Always

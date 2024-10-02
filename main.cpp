@@ -1,4 +1,6 @@
+#include "Source/common/include/common/concept_check.h"
 #include "common/check_template.h"
+#include "common/concept_check.h"
 #include "my_tuple/my_tuple.h"
 #include <iostream>
 #include <memory>
@@ -9,23 +11,23 @@ struct EmptyBase {};
 int main() {
     std::cout << "hello world";
     std::cout << "build successfully" << "\n";
-    double                                d   = 10.0;
-    int                                   i   = 1;
-    int                                   i2  = 10;
-    std::string                           str = "hahaha";
+    double                                    d   = 10.0;
+    int                                       i   = 1;
+    int                                       i2  = 10;
+    std::string                               str = "hahaha";
     My::MyTuple<double, int, std::string>     test( d, i, str );
     My::MyTuple<double, int, std::string>     test2 = test;
     My::MyTuple<double, int, std::string>     test3 = std::move( test );
     My::MyTuple<double, std::unique_ptr<int>> test4{ 10, nullptr };
-    auto&                                 testV = test3.Get<2>();
+    auto&                                     testV = test3.Get<2>();
     test3.Set<2>( "123123123" );
     std::unique_ptr<int> iPtr = std::unique_ptr<int>( new int( 10 ) );
     test4.Set<1>( std::move( iPtr ) );
     My::MyTuple<EmptyBase, int> k;
-    EmptyBase               e;
+    EmptyBase                   e;
     k.Set<0>( e );
     k.Set<1>( 1 );
     std::cout << "testV:" << test3.Get<2>() << ",testPtrV:" << *( test4.Get<1>().get() ) << "k int v:" << k.Get<1>();
     bool tK = IsVector<std::vector<int>>;
-    std::cout << "std::vector<int> is vector?:" << tK;
+    std::cout << "std::vector<int> is vector?:" << "\n";
 }
