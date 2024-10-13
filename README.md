@@ -64,6 +64,8 @@ compile task is in tasks.json, this configuration is written for msys environmen
                 ".",
                 "-B",
                 "build", 
+                "-DCMAKE_CXX_STANDARD=23",
+                "-DCMAKE_C_STANDARD=23",
                 "-DCMKAE_CXX_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang++.exe", // use your clang++ compiler path
                 "-DCMKAE_C_COMPILER=I:/programme/environment/Msys/ucrt64/bin/clang.exe", // use your clang compiler path
                 

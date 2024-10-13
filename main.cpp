@@ -10,22 +10,21 @@
 struct EmptyBase {};
 
 template <typename T>
-void Print( const T& arg ) {
-    std::cout << arg << " ";
+void Print( const T& arg, size_t i ) {
+    std::cout <<i<<": "<< arg << "\n";
 }
 
-template <typename... Args>
-void PrintAll( Args... args ) {
-    int a[] = { ( Print( args ), 2 )... };
-    ( Print( args ), ... );
-    std::cout << "\n"
-              << "list print:";
-    for ( const auto& ele : a ) {
-        std::cout << ele << " ";
-    }
+template <typename... Args, size_t ...I>
+void PrintAll(std::index_sequence<I...>, Args... args) {
+    ( Print( args ,I), ... );
     std::cout << "\n";
 }
-
+template <typename... Args>
+void PrintAllByIndex(Args... args)
+{
+    const size_t index = sizeof...(args);
+    PrintAll(std::make_index_sequence<index>(),args...);
+}
 int main() {
     std::cout << "hello world";
     std::cout << "build successfully" << "\n";
@@ -48,5 +47,5 @@ int main() {
     std::cout << "testV:" << test3.Get<2>() << ",testPtrV:" << *( test4.Get<1>().get() ) << "k int v:" << k.Get<1>();
     bool tK = IsVector<std::vector<int>>;
     std::cout << "std::vector<int> is vector?:" << "\n";
-    PrintAll( "123", 1, 2.0f, "213" );
+    PrintAllByIndex( "123", 1, 2.0f, "213" );
 }
